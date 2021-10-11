@@ -375,7 +375,6 @@
       <link:definitionArc order="1.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_DebtSecuritiesCurrent" xlink:to="lbl_TradingSecuritiesDebt" xlink:type="arc"/>
       <link:definitionArc order="2.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_DebtSecuritiesCurrent" xlink:to="lbl_AvailableForSaleSecuritiesDebtSecuritiesCurrent" xlink:type="arc"/>
       <link:definitionArc order="3.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_DebtSecuritiesCurrent" xlink:to="lbl_DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLossCurrent" xlink:type="arc"/>
-      <link:definitionArc order="2.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLossCurrent" xlink:to="lbl_DebtSecuritiesHeldToMaturityAllowanceForCreditLossCurrent" xlink:type="arc"/>
       <link:definitionArc order="3.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_ShortTermInvestments" xlink:to="lbl_MarketableSecuritiesCurrent" xlink:type="arc"/>
       <link:definitionArc order="4.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_ShortTermInvestments" xlink:to="lbl_OtherShortTermInvestments" xlink:type="arc"/>
       <link:definitionArc order="2.5" xlink:arcrole="http://www.xbrl.org/2021/arcrole/class-subclass" xlink:from="lbl_DebtSecuritiesCurrent" xlink:to="lbl_HeldToMaturitySecuritiesCurrent" xlink:type="arc"/>
