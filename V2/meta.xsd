@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dtr-types="http://www.xbrl.org/dtr/type/2020-01-21" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:meta="http://xbrl.us/meta" xmlns:us-gaap-entryPoint-all="http://fasb.org/us-gaap-entryPoint-all/2021-01-31" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xlink="http://www.w3.org/1999/xlink" attributeFormDefault="unqualified" blockDefault="" elementFormDefault="qualified" finalDefault="" targetNamespace="http://xbrl.us/meta">
+   <xsd:import namespace="http://www.xbrl.org/dtr/type/2020-01-21" schemaLocation="https://www.xbrl.org/dtr/type/2020-01-21/types.xsd"/>
+   <xsd:import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+   <xsd:import namespace="http://fasb.org/us-gaap-entryPoint-all/2021-01-31" schemaLocation="https://xbrl.fasb.org/us-gaap/2021/entire/us-gaap-entryPoint-all-2021-01-31.xsd"/>
+   <xsd:annotation>
+      <xsd:appinfo>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/instant-outflow" cyclesAllowed="any" id="instantoutflow">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase">Example Instant-outflow</definition>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/instant-inflow" cyclesAllowed="any" id="instantinflow">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase"/>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/instant-contra" cyclesAllowed="any" id="instantcontra">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase"/>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/instant-accrual" cyclesAllowed="any" id="instantaccrual">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase"/>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/trait-concept" cyclesAllowed="any" id="traitconcept">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase"/>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/class-subclass" cyclesAllowed="undirected" id="classsubclass">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase"/>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType>
+         <link:roleType id="role" roleURI="http://xbrl.us/meta/role/">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase">000001 - Meta - MetaModel of US GAAP Taxonomy</definition>
+            <link:usedOn>link:definitionLink</link:usedOn>
+         </link:roleType>
+         <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="meta-label.xml" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:type="simple"/>
+         <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="meta-definition.xml" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:type="simple"/>
+      <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/trait-domain" cyclesAllowed="undirected" id="traitdomain">
+            <definition xmlns="http://www.xbrl.org/2003/linkbase">Links the trait identifier to the domain of possible traits.</definition>
+            <link:usedOn>link:definitionArc</link:usedOn>
+         </link:arcroleType></xsd:appinfo>
+   </xsd:annotation>
+   <xsd:complexType abstract="false" mixed="false" name="trait">
+      <xsd:simpleContent>
+         <xsd:restriction base="xbrli:stringItemType"/>
+      </xsd:simpleContent>
+   </xsd:complexType>
+   <xsd:element abstract="true" id="meta_InvestingActivity" name="InvestingActivity" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_CurrentTrait" name="CurrentTrait" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_CarryingValue" name="CarryingValue" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecodedValueTrait" name="RecodedValueTrait" nillable="true" substitutionGroup="xbrli:item" type="meta:trait" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_ActivityTypeDomain" name="ActivityTypeDomain" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_FinancingActivity" name="FinancingActivity" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_OperatingActivity" name="OperatingActivity" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_LiquidityDomain" name="LiquidityDomain" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_Noncurrent" name="Noncurrent" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecordedValueDomain" name="RecordedValueDomain" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecordedAsEstimate" name="RecordedAsEstimate" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecordedAtHistoricalCost" name="RecordedAtHistoricalCost" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecordedAtFairValue" name="RecordedAtFairValue" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_ActivityTypeTrait" name="ActivityTypeTrait" nillable="true" substitutionGroup="xbrli:item" type="meta:trait" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_LiquidityTrait" name="LiquidityTrait" nillable="true" substitutionGroup="xbrli:item" type="meta:trait" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RelatedPartyTrait" name="RelatedPartyTrait" nillable="true" substitutionGroup="xbrli:item" type="meta:trait" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RelatedPartyDomain" name="RelatedPartyDomain" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_OperatingActivitiesTrait" name="OperatingActivitiesTrait" nillable="true" substitutionGroup="xbrli:item" type="meta:trait" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RelatedPartyMember" name="RelatedPartyMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_UnrelatedPartyMember" name="UnrelatedPartyMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RecordedAtLowerOfCarryingValueOrFairValue" name="RecordedAtLowerOfCarryingValueOrFairValue" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+</xsd:schema>

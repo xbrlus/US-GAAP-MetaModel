@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<link:linkbase xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+   <link:labelLink xlink:role="http://www.xbrl.org/2003/role/link" xlink:type="extended">
+      <link:label id="id_27f5d88" xlink:label="lbl_label41901448" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Current</link:label>
+      <link:loc xlink:href="meta.xsd#meta_CurrentTrait" xlink:label="lbl_CurrentTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_CurrentTrait" xlink:to="lbl_label41901448" xlink:type="arc"/>
+      <link:label id="id_2d71b373" xlink:label="lbl_label762426227" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Carrying Value</link:label>
+      <link:loc xlink:href="meta.xsd#meta_CarryingValue" xlink:label="lbl_CarryingValue" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_CarryingValue" xlink:to="lbl_label762426227" xlink:type="arc"/>
+      <link:label id="id_61bff775" xlink:label="lbl_label1639970677" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Investing Activity</link:label>
+      <link:loc xlink:href="meta.xsd#meta_InvestingActivity" xlink:label="lbl_InvestingActivity" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_InvestingActivity" xlink:to="lbl_label1639970677" xlink:type="arc"/>
+      <link:label id="id_c8aa844" xlink:label="lbl_label210413636" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recoded Value [Trait]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RecodedValueTrait" xlink:label="lbl_RecodedValueTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecodedValueTrait" xlink:to="lbl_label210413636" xlink:type="arc"/>
+      <link:label id="id_59ace0c8" xlink:label="lbl_label1504501960" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded Value [Domain]</link:label>
+      <link:label id="id_10ab6d8c" xlink:label="lbl_label279670156" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Historical Cost</link:label>
+      <link:label id="id_6dc7de5" xlink:label="lbl_label115113445" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Fair Value</link:label>
+      <link:label id="id_3a9cf225" xlink:label="lbl_label983364133" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Activity Type [Domain]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_ActivityTypeDomain" xlink:label="lbl_ActivityTypeDomain" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_ActivityTypeDomain" xlink:to="lbl_label983364133" xlink:type="arc"/>
+      <link:label id="id_29468c33" xlink:label="lbl_label692489267" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Financing Activity</link:label>
+      <link:loc xlink:href="meta.xsd#meta_FinancingActivity" xlink:label="lbl_FinancingActivity" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_FinancingActivity" xlink:to="lbl_label692489267" xlink:type="arc"/>
+      <link:label id="id_4ee2b0e4" xlink:label="lbl_label1323479268" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Operating Activity</link:label>
+      <link:loc xlink:href="meta.xsd#meta_OperatingActivity" xlink:label="lbl_OperatingActivity" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_OperatingActivity" xlink:to="lbl_label1323479268" xlink:type="arc"/>
+      <link:label id="id_7727949f" xlink:label="lbl_label1999082655" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Liquidity [Domain]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_LiquidityDomain" xlink:label="lbl_LiquidityDomain" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_LiquidityDomain" xlink:to="lbl_label1999082655" xlink:type="arc"/>
+      <link:label id="id_8771cda" xlink:label="lbl_label142023898" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Noncurrent</link:label>
+      <link:loc xlink:href="meta.xsd#meta_Noncurrent" xlink:label="lbl_Noncurrent" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_Noncurrent" xlink:to="lbl_label142023898" xlink:type="arc"/>
+      <link:loc xlink:href="meta.xsd#meta_RecordedValueDomain" xlink:label="lbl_RecordedValueDomain" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedValueDomain" xlink:to="lbl_label1504501960" xlink:type="arc"/>
+      <link:label id="id_7465888d" xlink:label="lbl_label1952811149" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded as Estimate</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAsEstimate" xlink:label="lbl_RecordedAsEstimate" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAsEstimate" xlink:to="lbl_label1952811149" xlink:type="arc"/>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAtHistoricalCost" xlink:label="lbl_RecordedAtHistoricalCost" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtHistoricalCost" xlink:to="lbl_label279670156" xlink:type="arc"/>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAtFairValue" xlink:label="lbl_RecordedAtFairValue" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtFairValue" xlink:to="lbl_label115113445" xlink:type="arc"/>
+      <link:label id="id_12050a15" xlink:label="lbl_label302320149" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Activity Type [Trait]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_ActivityTypeTrait" xlink:label="lbl_ActivityTypeTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_ActivityTypeTrait" xlink:to="lbl_label302320149" xlink:type="arc"/>
+      <link:label id="id_2e8d1a26" xlink:label="lbl_label780999206" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Liquidity [Trait]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_LiquidityTrait" xlink:label="lbl_LiquidityTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_LiquidityTrait" xlink:to="lbl_label780999206" xlink:type="arc"/>
+      <link:label id="id_6619c322" xlink:label="lbl_label1712964386" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Related Party [Trait]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RelatedPartyTrait" xlink:label="lbl_RelatedPartyTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RelatedPartyTrait" xlink:to="lbl_label1712964386" xlink:type="arc"/>
+      <link:label id="id_766c5f19" xlink:label="lbl_label1986813721" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Related Party [Domain]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RelatedPartyDomain" xlink:label="lbl_RelatedPartyDomain" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RelatedPartyDomain" xlink:to="lbl_label1986813721" xlink:type="arc"/>
+      <link:label id="id_281a50bf" xlink:label="lbl_label672813247" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Operating Activities [Trait]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_OperatingActivitiesTrait" xlink:label="lbl_OperatingActivitiesTrait" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_OperatingActivitiesTrait" xlink:to="lbl_label672813247" xlink:type="arc"/>
+      <link:label id="id_4db52b4d" xlink:label="lbl_label1303718733" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Related Party [Member]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RelatedPartyMember" xlink:label="lbl_RelatedPartyMember" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RelatedPartyMember" xlink:to="lbl_label1303718733" xlink:type="arc"/>
+      <link:label id="id_472897c7" xlink:label="lbl_label1193842631" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Unrelated Party [Member]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_UnrelatedPartyMember" xlink:label="lbl_UnrelatedPartyMember" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_UnrelatedPartyMember" xlink:to="lbl_label1193842631" xlink:type="arc"/>
+      <link:label id="id_63ee015b" xlink:label="lbl_label1676542299" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Lower of Carrying Value or Fair Value</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAtLowerOfCarryingValueOrFairValue" xlink:label="lbl_RecordedAtLowerOfCarryingValueOrFairValue" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtLowerOfCarryingValueOrFairValue" xlink:to="lbl_label1676542299" xlink:type="arc"/>
+   </link:labelLink>
+</link:linkbase>
