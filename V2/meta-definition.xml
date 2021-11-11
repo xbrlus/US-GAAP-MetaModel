@@ -1243,5 +1243,14 @@
       <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_FiniteLivedIntangibleAssetsAccumulatedAmortization" xlink:label="lbl_FiniteLivedIntangibleAssetsAccumulatedAmortization" xlink:type="locator"/>
       <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_FiniteLivedIntangibleAssetsGross" xlink:label="lbl_FiniteLivedIntangibleAssetsGross" xlink:type="locator"/>
       <link:definitionArc order="1.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/instant-contra" xlink:from="lbl_FiniteLivedIntangibleAssetsGross" xlink:to="lbl_FiniteLivedIntangibleAssetsAccumulatedAmortization" xlink:type="arc"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossCurrent" xlink:label="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossCurrent" xlink:type="locator"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetGrossCurrent" xlink:label="lbl_ContractWithCustomerAssetGrossCurrent" xlink:type="locator"/>
+      <link:definitionArc order="1.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/instant-contra" xlink:from="lbl_ContractWithCustomerAssetGrossCurrent" xlink:to="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossCurrent" xlink:type="arc"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetAccumulatedAllowanceForCreditLoss" xlink:label="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLoss" xlink:type="locator"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetGross" xlink:label="lbl_ContractWithCustomerAssetGross" xlink:type="locator"/>
+      <link:definitionArc order="1.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/instant-contra" xlink:from="lbl_ContractWithCustomerAssetGross" xlink:to="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLoss" xlink:type="arc"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossNoncurrent" xlink:label="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossNoncurrent" xlink:type="locator"/>
+      <link:loc xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ContractWithCustomerAssetGrossNoncurrent" xlink:label="lbl_ContractWithCustomerAssetGrossNoncurrent" xlink:type="locator"/>
+      <link:definitionArc order="1.0" xlink:arcrole="http://www.xbrl.org/2021/arcrole/instant-contra" xlink:from="lbl_ContractWithCustomerAssetGrossNoncurrent" xlink:to="lbl_ContractWithCustomerAssetAccumulatedAllowanceForCreditLossNoncurrent" xlink:type="arc"/>
    </link:definitionLink>
 </link:linkbase>
