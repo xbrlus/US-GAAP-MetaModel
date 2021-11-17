@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<link:linkbase xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+   <link:roleRef roleURI="http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirect" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-roles-2021-01-31.xsd#scf-indir" xlink:type="simple"/>
+   <link:calculationLink xlink:role="http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirect" xlink:type="extended">
+   </link:calculationLink>
+</link:linkbase>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Initial Meta-->
+<linkbase
+  xmlns="http://www.xbrl.org/2003/linkbase"
+  xmlns:xbrli="http://www.xbrl.org/2003/instance"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+    <labelLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <loc
+          xlink:href="meta_2021-01-31.xsd#meta_TraitsAbstract"
+          xlink:label="meta_TraitsAbstract"
+          xlink:type="locator"/>
+        <labelArc
+          order="1"
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label"
+          xlink:from="meta_TraitsAbstract"
+          xlink:to="label_meta_TraitsAbstract"
+          xlink:type="arc"/>
+        <label
+          xlink:label="label_meta_TraitsAbstract"
+          xlink:role="http://www.xbrl.org/2003/role/label"
+          xlink:type="resource"
+          xml:lang="en">Traits [Abstract]</label>
+        <label
+          xlink:label="label_meta_TraitsAbstract"
+          xlink:role="http://www.xbrl.org/2003/role/documentation"
+          xlink:type="resource"
+          xml:lang="en">Information in the Breakage Fee Agreement which is used if the developer decides not to move forward and the agreement is broken.</label>
+        <loc
+          xlink:href="meta_2021-01-31.xsd#meta_RecordedValueDomain"
+          xlink:label="meta_RecordedValueDomain"
+          xlink:type="locator"/>
+        <labelArc
+          order="1"
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label"
+          xlink:from="meta_RecordedValueDomain"
+          xlink:to="label_meta_RecordedValueDomain"
+          xlink:type="arc"/>
+        <label
+          xlink:label="label_meta_RecordedValueDomain"
+          xlink:role="http://www.xbrl.org/2003/role/label"
+          xlink:type="resource"
+          xml:lang="en">Recorded Value [Domain]</label>
+        <loc
+          xlink:href="meta_2021-01-31.xsd#meta_RecodedValueTrait"
+          xlink:label="meta_RecodedValueTrait"
+          xlink:type="locator"/>
+        <labelArc
+          order="1"
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label"
+          xlink:from="meta_RecodedValueTrait"
+          xlink:to="label_meta_RecodedValueTrait"
+          xlink:type="arc"/>
+        <label
+          xlink:label="label_meta_RecodedValueTrait"
+          xlink:role="http://www.xbrl.org/2003/role/label"
+          xlink:type="resource"
+          xml:lang="en">Recoded Value [Trait]</label>
+    </labelLink>
+</linkbase>
