@@ -67,4 +67,6 @@
    <xsd:element abstract="true" id="meta_RelatedPartyMember" name="RelatedPartyMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
    <xsd:element abstract="true" id="meta_UnrelatedPartyMember" name="UnrelatedPartyMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
    <xsd:element abstract="true" id="meta_RecordedAtLowerOfCarryingValueOrFairValue" name="RecordedAtLowerOfCarryingValueOrFairValue" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_RestrictedMember" name="RestrictedMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
+   <xsd:element abstract="true" id="meta_UnrestrictedMember" name="UnrestrictedMember" nillable="true" substitutionGroup="xbrli:item" type="dtr-types:domainItemType" xbrli:periodType="duration"/>
 </xsd:schema>
