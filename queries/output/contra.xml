@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in SEC Inline Transforms successful, version 19.2. - transforms/SEC </message>
+ <ref href="transforms/SEC"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Validate EFM successful, version 1.21.1. - validate/EFM </message>
+ <ref href="validate/EFM"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Inline XBRL Document Set successful, version 1.1. - inlineXbrlDocumentSet </message>
+ <ref href="inlineXbrlDocumentSet"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23303 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 2.68 secs at 2021-11-18T14:40:23 - http://www.sec.gov/Archives/edgar/data/1322439/000162828021004645/egle-20201231.htm </message>
+ <ref href="http://www.sec.gov/Archives/edgar/data/1322439/000162828021004645/egle-20201231.htm"/></entry>
+<entry code="restricted" level="info">
+ <message filing_url="http://www.sec.gov/Archives/edgar/data/1322439/000162828021004645/egle-20201231.htm" severity="info" cid="4491538288">[restricted] set(us-gaap:EarnestMoneyDeposits, us-gaap:DepositsWithClearingOrganizationsAndOthersSecurities, us-gaap:EscrowDeposit, us-gaap:MarginDepositAssets, us-gaap:RetainageDeposit, us-gaap:DepositContractsAssets, us-gaap:SecurityDeposit, us-gaap:DepositAssets, us-gaap:CashCollateralForBorrowedSecurities, us-gaap:RestrictedInvestmentsNoncurrent, us-gaap:RestrictedInvestmentsCurrent, us-gaap:RestrictedInvestments, us-gaap:RestrictedCashAndCashEquivalentsNoncurrent, us-gaap:RestrictedCashAndCashEquivalentsAtCarryingValue, us-gaap:RestrictedCashAndCashEquivalents, us-gaap:PledgedAssetsSeparatelyReportedSecuritiesPledgedForOtherDebtObligationsAtFairValue, us-gaap:PledgedAssetsSeparatelyReportedSecuritiesPledgedUnderLetterOfCreditFacilitiesAtFairValue, us-gaap:PledgedAssetsSeparatelyReportedSecuritiesPledgedForRepurchaseAgreementsAtFairValue, us-gaap:PledgedAssetsSeparatelyReportedSecuritiesPledgedForFederalHomeLoanBankAtFairValue, us-gaap:PledgedAssetsSeparatelyReportedSecuritiesPledgedAsCollateralAtFairValue, us-gaap:ReplacementReserveEscrow, us-gaap:SecuritiesSegregatedUnderOtherRegulations, us-gaap:CashSegregatedUnderOtherRegulations, us-gaap:CashAndSecuritiesSegregatedUnderCommodityExchangeActRegulation, us-gaap:CashAndSecuritiesSegregatedUnderSecuritiesExchangeCommissionRegulation, us-gaap:CashAndSecuritiesSegregatedUnderFederalAndOtherRegulations, us-gaap:RestrictedCashAndInvestments, us-gaap:OtherRestrictedAssets) - </message></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 20.23 secs - http://www.sec.gov/Archives/edgar/data/1322439/000162828021004645/egle-20201231.htm </message>
+ <ref href="http://www.sec.gov/Archives/edgar/data/1322439/000162828021004645/egle-20201231.htm"/></entry>
+</log>

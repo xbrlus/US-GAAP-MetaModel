@@ -1,0 +1,353 @@
+/** 
+ * pad
+ * 
+ * This function pads a value
+ * 
+ * @param factset - $padee - Value to pad
+ * @param factset - $len - Length ot pad to in agg
+ * @param integer - $pad-char - Character to pad with
+ * @return string - Returns a string
+**/
+
+
+function pad($padee, $len, $pad_char)
+	if length($padee) >= $len
+		/**There is nothing to pad **/
+		$padee
+	else
+		$pad_char_1 = if $pad_char == none ' '
+				      else if (length($pad_char.string) >= 1) substring($pad_char.string,1,1) 
+				      else ' ';
+		$padding = sum(list(for $x in range($len) $pad_char_1));
+		$padded_num = $padding + $padee;
+
+		substring($padded_num, length($padded_num)-$len+1)
+
+/** 
+** padNumber 
+** Pads a number.
+**/
+function padNumber($fact_value, $padding)
+				pad($fact_value.string+"",$padding," ")
+
+/** 
+* getNormStringValue
+*
+* This function returns a set of facts cmromizing a normalized fact. The function identifies if the 
+* financial statement includes  a dimensionsal table by a flag as the 3rd argument.
+*
+* DIMENSIONAL TABLE
+*
+*   If the statement table is dimensional the function then tries to work out the normalized value.
+*   It goes through all the concepts that define the normal value. These are passed as a set. It checks
+*   if each concept in the set has a defualt value. If it does it takes the defualt value for that concept.
+*   If it does not have a default it takes all the dimensional values of that concept in the instance.
+*   It then takes all the facts are collected and removes any facts that are not in the statement
+*   table by intersecting the normalized values with the statement table facts. The net values are then returned.
+*   
+*
+* NON DIMENSIONAL TABLE
+*
+*   Returns the default values of the concepts comprising the normal values.
+*
+* @param set - $norm_concepts - set of qnames from the taxonomy that are to be nomalized.
+* @param set - $table_facts - set of facts from the instance that are in the statement table.
+* @param boolean - $dim_stmt - Flag that indicates if the statement is a table.
+**/
+
+
+function getNormValue($norm_concepts, $table_facts, $dim_stmt, $decimals)
+      if $dim_stmt == true
+            $net_facts = list(for $concept_item in $norm_concepts
+									if list([nonils @concept = $concept_item]).length == 0
+										/** Exclude legal entity axis as these should not be added together **/
+										{covered-dims nonils @concept = $concept_item @cube in $table_facts where not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis')}
+									else
+										if exists([nonils @concept = $concept_item where $fact.decimals >= $decimals])
+											$temp = first-value([nonils @concept = $concept_item where $fact.decimals == $decimals], [nonils @concept = $concept_item where $fact.decimals > $decimals]);
+											$temp
+										else
+											[nonils @concept = $concept_item where $fact.decimals >= -8]
+										  );
+            $net_facts 
+      else 
+	  		$net_facts = list(for $concept_item in $norm_concepts
+										if exists([nonils @concept = $concept_item where $fact.decimals >= $decimals])
+											$temp = first-value([nonils @concept = $concept_item where $fact.decimals == $decimals], [nonils @concept = $concept_item where $fact.decimals > $decimals]);
+											$temp
+										else
+											[nonils @concept = $concept_item where $fact.decimals >= -8]
+										  );
+            $net_facts
+
+
+
+
+function getNormDimensionValues($norm_concepts, $table_facts, $dim_stmt, $dims, $drs-role)
+	if $dim_stmt == true
+            $net_facts = sum(list(for $concept_item in $norm_concepts
+									if list([nonils @concept = $concept_item]).length == 0
+										for $dim1 in $dims
+											getDimensionFacts($concept_item, $dim1, $drs-role)
+									else
+										list([nonils @concept = $concept_item])
+										  ));
+            if $net_facts == none 
+				list()
+			else
+				$net_facts
+    else 
+	  		list([nonils @concept in $norm_concepts])
+
+
+/**
+** getPPEValues
+**
+**
+**/
+
+function getPPEValues($norm_concepts, $roleSet)    
+            $ppe_facts = sum(list(for $concept_item in $norm_concepts
+									if list([nonils @concept = $concept_item]).length == 0 and $roleSet.length != 0
+										getDimensionFacts($concept_item, PropertyPlantAndEquipmentByTypeAxis, $roleSet[1]) +
+										list([nonils @concept = $concept_item @srt:ConsolidatedEntitiesAxis = * ])
+									else
+										list([nonils @concept = $concept_item])
+										  ));
+			if $ppe_facts == none 
+				list()
+			else
+				/**Some PPE Values are mutually exclusive and should not both be included even before looking at calc tree **/
+				$ppe_names = filter $ppe_facts returns $item.concept.name;
+				/**CASE 1 NEEDS SOME WORK  BECAUSE OF DIMENSIONS. SEE AMAZON FILING. WILL CHANGE IF ONLY HAS ONE CHILD**/
+				if ($ppe_names.contains(PropertyPlantAndEquipmentGross) and $ppe_names.contains(PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetBeforeAccumulatedDepreciationAndAmortization))
+				$ppe_facts_less_conflicts =	list(for $ppe in $ppe_facts
+								if $ppe.concept.name == PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetBeforeAccumulatedDepreciationAndAmortization
+									skip
+								else
+							$ppe);
+					$ppe_facts_less_conflicts
+				else 
+					$ppe_facts
+
+      
+
+/**
+* getDimensionFacts
+*
+**/
+
+function getDimensionFacts($concept, $dim, $drs-role)
+			$members = navigate dimensions descendants from $dim drs-role $drs-role returns target-name
+
+			$domain = navigate dimensions dimension-domain descendants from $dim drs-role $drs-role returns set target-name
+
+			/** Get a set  of the unique members **/
+			$member_descendants = $members.to-set - $domain;
+
+			/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded. **/
+			$member_facts = list(for $member in $member_descendants
+								$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $drs-role returns set (target-name)) - $domain;
+								if list({nonils @concept = $concept @cube.drs-role = $drs-role @$dim in $ancestors_list}).length > 0
+									skip
+								else 
+									{nonils @concept = $concept @cube.drs-role = $drs-role @$dim = $member});
+			/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
+			if 	$member_facts.length == 0 
+				list()
+			else		
+				/** aggregate the fact values on the axis **/
+				$member_facts
+
+/** 
+* getDimensionalValue
+
+**/
+
+function getDimensionalValue($norm_concepts, $table_facts, $dim_stmt, $decimals, $dimension, $member)
+      if $dim_stmt == true
+            $net_facts = list(for $concept_item in $norm_concepts
+									if list([nonils @concept = $concept_item @$dimension = $member]).length == 0
+										/** Exclude legal entity axis as these should not be added together **/
+										{covered-dims nonils @concept = $concept_item  @$dimension = $member @cube in $table_facts where not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis')}
+									else
+										if exists([nonils @concept = $concept_item @$dimension = $member where $fact.decimals >= $decimals])
+											$temp = first-value([nonils @concept = $concept_item @$dimension = $member where $fact.decimals == $decimals], [nonils @concept = $concept_item @$dimension = $member where $fact.decimals > $decimals]);
+											$temp
+										else
+											[nonils @concept = $concept_item @$dimension = $member where $fact.decimals >= -8]
+										  );
+            $net_facts 
+      else 
+	  		$net_facts = list();
+            $net_facts
+
+
+/**
+* sumAccountingFacts
+**/
+
+function sumAccountingFacts($facts, $balance)
+							
+		$debit_facts = filter $facts where $item.concept.balance == debit;
+		$credit_facts = filter $facts where $item.concept.balance == credit;
+		if $balance == "debit"
+			sum($debit_facts) - sum($credit_facts)
+		else
+			sum($credit_facts) - sum($debit_facts)
+
+/**
+* sumAccountingFactsNoKnownLeaf
+**/
+
+function sumAccountingFactsNoFSLeaf($facts, $balance, $calc)
+		$sum_concepts = filter $facts returns $item.concept.name;
+		/** CHECK FACTS ARE NOT DOUBLE COUNTED **/
+		$facts_unique = list(for $x in $facts
+								$ancestors = if $calc == "taxonomy"
+													(navigate summation-item ancestors from  list($x.concept.name)  taxonomy $us-gaap returns set (target-name))
+											 else
+											 		(navigate summation-item ancestors from  list($x.concept.name) returns set (target-name));
+								if ($sum_concepts intersect $ancestors).length > 0
+									skip
+								else
+									$x
+							)
+		$debit_facts = filter $facts_unique where $item.concept.balance == debit;
+		$credit_facts = filter $facts_unique where $item.concept.balance == credit;
+		if $balance == "debit"
+			sum($debit_facts) - sum($credit_facts)
+		else
+			sum($credit_facts) - sum($debit_facts)
+
+
+/**
+** sumAccountingFactsFilingLeafItemsGross
+**
+** This function takes a set of facts from a calculation tree and works out the gross credits or debits of the children 
+** while not double counting. This requires that the function only adds the child facts that have a specified balance and 
+** are leaf items and ignores ancestors.  This function is used to get Gross Balances.  The function must be passed facts that have already
+** navigated a linkbase.
+** 
+**
+**/
+
+function sumAccountingFactsFilingLeafItemsGross($facts, $balance)
+		$factConcepts = filter $facts returns $item.concept.name;
+		/** CHECK FACTS ARE NOT DOUBLE COUNTED **/
+		/** GET CONCEPT FACTS **/
+				$factConcepts = filter $facts returns $item.concept.name;
+				/** CHECK FACTS ARE NOT DOUBLE COUNTED **/
+				$facts_unique = list(for $x in $facts
+								$children = (navigate summation-item descendants from  list($x.concept.name) where  $relationship.target.balance.string == $balance returns set (target-name));
+								if ($factConcepts.to-set intersect $children).length > 0
+										skip
+								else
+									$x)
+		sum($facts_unique)
+
+
+/** Turn extension local-name into a taxonomy concept **/
+
+function extConcept($ext_local_name)
+	if taxonomy().concept(qname(taxonomy().entry-point-namespace,$ext_local_name)) == none
+		skip 
+	else
+		taxonomy().concept(qname(taxonomy().entry-point-namespace,$ext_local_name))
+ 
+
+/** 
+ * is_extension
+ * 
+ * This function Checks if the concept is an extension taxonomy element  .
+ * 
+ * @param concept - $test_extension - Passes concept to check if it is an extension concept.
+ * @param set - $base_taxonomies - Set of taxonomies that comprise the base taxonomies.
+ * @return boolean - Returns true if the concept is an extension concept.
+ **/
+
+function is_extension($test_extension, $base_taxonomies)
+		all(filter $base_taxonomies returns $item.concept($test_extension.name) == none)	
+
+/** 
+ * most_frequent
+ * 
+ * This function will return the most frequent item in a list.
+ * 
+ * @param list - $listOfItems - Passes the list of items to determine the most common.
+ **/
+function most_frequent($list_of_items)
+            $unique_items = $list_of_items.to-set;
+            $index = dict(for $x in $unique_items
+                        list((filter $list_of_items where $item == $x).length, $x)
+            );
+            $max_occurence = max(list(for $x in $unique_items
+                                    (filter $list_of_items where $item == $x).length
+                              )
+                              )
+            $index[$max_occurence]
+
+/** 
+ * presentation_items_with_ancestor_leaf_item_in_calc
+ * 
+ * This function will return a set of presentation items that have a ancestor that also appears as a leaf item.
+ * 
+ * @param list - $orphaned_parent_items - Passes set of items in the presentation but not in the calculation tree.
+ * @param list - $$balance_sheet_leaf_items_prior_to_removal_of_extra_presentation_items - Passes set of items of calculation leaf items tat could include invalid leafs.
+ **/
+
+function presentation_items_with_ancestor_leaf_item_in_calc($orphaned_parent_items, $balance_sheet_leaf_items_prior_to_removal_of_extra_presentation_items)
+            set(for $element in $orphaned_parent_items
+                  $subtotals = navigate summation-item ancestors from list($element.name) taxonomy $us-gaap returns set (target-name);
+                  if $subtotals.intersect(filter $balance_sheet_leaf_items_prior_to_removal_of_extra_presentation_items returns $item.name).length > 0
+                        $element
+                  else
+                      skip
+                  )
+
+function comprised_of($facts)
+			(filter $facts returns list($item.concept.name.local-name, $item))
+
+
+/** 
+ * tolerance_for_decimals
+ * 
+ * This function works out the tolerance between 2 values with different decimals with a tolerance factor.
+ * 
+ * @param factset - $left - Passes a factset value to compare to a second parameter called $right
+ * @param factset - $right - Passes a factset value to compare to the first parameter called $left
+ * @param integer - $decimal_tolerance_factor - Integer value that defines how different the values can be
+ * @return boolean - Returns true if the two values provided are outside of the tolerance range.
+**/
+
+function tolerance_for_decimals($left, $right, $decimal_tolerance_factor)
+
+	$left_decimal = if $left.decimals == none
+						inf else $left.decimals;
+						
+	$right_decimal = if $right.decimals == none
+						$left_decimal else $right.decimals;
+						
+	$tolerance1 = if ($left_decimal < $right_decimal) 
+						$left_decimal
+					else 	
+						$right_decimal;
+	$tolerance2 = if ($tolerance1 == inf) 
+						0
+					else 	
+						(10.power(-1 * $tolerance1)) * $decimal_tolerance_factor;
+						
+	$left = if $left == none
+				0
+			else
+				$left;
+
+	$right = if $right == none
+				0
+			else
+				$right;
+
+	if (abs(round($left,$tolerance1) - round($right,$tolerance1)) > $tolerance2) 
+		true
+	else 
+		false 
