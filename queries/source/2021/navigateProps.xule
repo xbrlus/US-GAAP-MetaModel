@@ -2,8 +2,10 @@ constant $CONTRAS = navigate 'http://www.xbrl.org/2021/arcrole/instant-contra' d
 
 constant $RESTRICTED_PROPERTY = navigate 'http://www.xbrl.org/2021/arcrole/trait-concept' descendants from meta:RestrictedMember taxonomy $meta returns set (target-name)
 
-
 constant $RESTRICTED_ITEMS = navigate 'http://www.xbrl.org/2021/arcrole/class-subclass' descendants include start from $RESTRICTED_PROPERTY taxonomy $meta returns set (target-name)
+
+
+constant $CASH_INFLOW = navigate 'http://www.xbrl.org/2021/arcrole/instant-inflow' descendants from Cash taxonomy  $meta returns set (target-name)
 
 output contra
 $CONTRAS
@@ -11,3 +13,6 @@ $CONTRAS
 
 output restricted
 $RESTRICTED_ITEMS
+
+output cashInflow
+$CASH_INFLOW 
