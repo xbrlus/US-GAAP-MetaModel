@@ -61,7 +61,7 @@
       <link:label id="id_472897c7" xlink:label="lbl_label1193842631" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Unrelated Party [Member]</link:label>
       <link:loc xlink:href="meta.xsd#meta_UnrelatedPartyMember" xlink:label="lbl_UnrelatedPartyMember" xlink:type="locator"/>
       <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_UnrelatedPartyMember" xlink:to="lbl_label1193842631" xlink:type="arc"/>
-      <link:label id="id_63ee015b" xlink:label="lbl_label1676542299" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Lower of Carrying Value or Fair Value [Member]</link:label>
+      <link:label id="id_63ee015b" xlink:label="lbl_label1676542299" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Lower of Amortized Cost or Fair Value [Member]</link:label>
       <link:loc xlink:href="meta.xsd#meta_RecordedAtLowerOfCarryingValueOrFairValue" xlink:label="lbl_RecordedAtLowerOfCarryingValueOrFairValue" xlink:type="locator"/>
       <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtLowerOfCarryingValueOrFairValue" xlink:to="lbl_label1676542299" xlink:type="arc"/>
       <link:label id="id_2ae97e11" xlink:label="lbl_label719945233" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Restricted [Member]</link:label>
@@ -70,5 +70,8 @@
       <link:label id="id_3aef34ea" xlink:label="lbl_label988755178" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Unrestricted [Member]</link:label>
       <link:loc xlink:href="meta.xsd#meta_UnrestrictedMember" xlink:label="lbl_UnrestrictedMember" xlink:type="locator"/>
       <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_UnrestrictedMember" xlink:to="lbl_label988755178" xlink:type="arc"/>
+      <link:label id="id_1c10a998" xlink:label="lbl_label470854040" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Amortized Cost [Member]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAtAmortizedCostMember" xlink:label="lbl_RecordedAtAmortizedCostMember" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtAmortizedCostMember" xlink:to="lbl_label470854040" xlink:type="arc"/>
    </link:labelLink>
 </link:linkbase>
