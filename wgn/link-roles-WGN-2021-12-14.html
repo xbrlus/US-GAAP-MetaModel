@@ -47,10 +47,10 @@ of trait (property) links, and in particular, the handling of inheritance of tra
 <h2><a name="contents" id="contents"></a>Table of Contents</h2><p class="toc"><span>1 <a href="#sec-intro">Introduction</a><br>
 </span><span>2 <a href="#sec-assignment-of-traits">Assignment of Traits</a><br>
 <span>   2.1 <a href="#sec-assignment-by-class">Assignment of Traits by Sub Class</a><br>
-</span><span>   2.2 <a href="#sec-complete-duplicates">Restrictions on the Assignment of Traits and Classes</a><br>
-</span><span>   2.3 <a href="#sec-multi-language-duplicates">Traits, Classes and Extended Link Roles</a><br>
+</span><span>   2.2 <a href="#sec-assignment-restrictions">Restrictions on the Assignment of Traits and Classes</a><br>
+</span><span>   2.3 <a href="#sec-traits-classes-extended-link-roles">Traits, Classes and Extended Link Roles</a><br>
 </span></span>
-<span>3 <a href="#sec-issues-with-xbrl-2-1-duplicate-definition">Interaction with Other Arc Roles</a><br>
+<span>3 <a href="#sec-arc-role-interaction">Interaction with Other Arc Roles</a><br>
 </span>
 
 <h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc"><span>A <a href="#sec-references">References</a><br>
@@ -58,7 +58,15 @@ of trait (property) links, and in particular, the handling of inheritance of tra
 </span><span>C <a href="#sec-acknowledgements">Acknowledgements (non-normative)</a><br>
 </span><span>D <a href="#sec-history">Document history</a><br>
 </span><span>E <a href="#sec-corrections">Errata corrections in this document</a><br>
-</span></p><h3><a name="figures" id="figures"></a>Figure</h3><p class="toc">1 <a href="#figure-duplicates-venn">Classes of duplicates</a><br></p>
+</span></p>
+<h3><a name="figures" id="figures"></a>Figure</h3>
+<p class="toc">1 <a href="#figure-define-traits">Defining Traits</a><br>
+ 2 <a href="#figure-inherit-traits">Inheriting Traits using a Subclass</a><br>
+ 3 <a href="#figure-conflicting-traits">Conflicting Traits</a><br>
+ 4 <a href="#figure-trait-domain">Trait Domain for Recorded Value</a><br>
+ 5 <a href="#figure-nonconflicting-traits">Nonconflicting Traits</a><br>
+</p>
+
 <h3><a name="definitions" id="definitions"></a>Definition</h3><p class="toc"><a href="#term-string-fact">String fact</a><br></p></div><hr><div class="body">
     <div class="div1"><a name="sec-intro" id="sec-intro"></a>
       <h1>1 Introduction</h1>
@@ -138,7 +146,7 @@ The trait of current is defined as a domain member type. It is then associated w
           </p>
 
         </p>
-        <div class="chunkHeading"><a name="figure-define-traits" id="figure-define-traits"></a>Figure 2: Inheriting Traits using a Subclass</div><div class="figure">           
+        <div class="chunkHeading"><a name="figure-inherit-traits" id="figure-inherit-traits"></a>Figure 2: Inheriting Traits using a Subclass</div><div class="figure">           
         
           <img src="images/trait-class.png" width="440" height="220">
         </div>
@@ -164,19 +172,19 @@ Contradictory traits cannot be assigned to a given concept.  In Figure 1, the co
         </p>
         <p>In figure 3 a concept is assigned a trait of recorded at Historical Cost and its subclass is assigned a trait of Recorded at Carrying Value. </p>
         
-        <div class="chunkHeading"><a name="conflicting-traits" id="conflicting-traits"></a>Figure 3: Conflicting Traits</div><div class="figure">           
+        <div class="chunkHeading"><a name="figure-conflicting-traits" id="figure-conflicting-traits"></a>Figure 3: Conflicting Traits</div><div class="figure">           
         <p></p>
           <img src="images/conflicting-traits.png" width="500" height="180">
         </div>
         <p>These two traits are distinct as defined by the relationships in figure 4. </p>
 
-        <div class="chunkHeading"><a name="trait-domain" id="trait-domain"></a>Figure 4: Trait Domain for Recorded Value</div><div class="figure">           
+        <div class="chunkHeading"><a name="figure-trait-domain" id="figure-trait-domain"></a>Figure 4: Trait Domain for Recorded Value</div><div class="figure">           
           <p></p>
             <img src="images/trait-domain.png" width="600" height="120">
           </div>
           <p>The class subclass relationship between the two concepts cannot be defined because they have contradictory traits. To define the subclass the Recorded at carrying value trait would have to be removed, or the class-subclass relationship would have to be defined at a higher level as shown in figure 5. </p>
 
-          <div class="chunkHeading"><a name="conflicting-traits" id="conflicting-traits"></a>Figure 5: Nonconflicting Traits</div><div class="figure">           
+          <div class="chunkHeading"><a name="figure-nonconflicting-traits" id="figure-nonconflicting-traits"></a>Figure 5: Nonconflicting Traits</div><div class="figure">           
             <p></p>
               <img src="images/non-conflicting-traits.png" width="500" height="180">
             </div>
@@ -185,7 +193,7 @@ Contradictory traits cannot be assigned to a given concept.  In Figure 1, the co
 
 
       </div>
-      <div class="div2"><a name="traits-classes-extended-link-roles" id="traits-classes-extended-link-roless"></a>
+      <div class="div2"><a name="sec-traits-classes-extended-link-roles" id="sec-traits-classes-extended-link-roles"></a>
         <h2>2.3 Traits, Classes and Extended Link Roles</h2>
         <p>
           Trait datatypes are associated with a domain. The trait-domain relationship although defined in one link role applies to all link roles. Because traits and classes have to be consistent across the dts they can all be defined in a single link role. 
@@ -196,7 +204,7 @@ Contradictory traits cannot be assigned to a given concept.  In Figure 1, the co
   <p>Classes and subclasses cannot be inconsistent across extended link roles.Because a class is a method of assigning traits to a concept and concepts are the same across extended link roles, the class and subclass relationships must also be consistent across extended link roles. This means inconsistencies in traits and classes cannot exist across extended link roles.</p>
 
     </div>
-    <div class="div1"><a name="arc-role-interaction" id="arc-role-interaction"></a>
+    <div class="div1"><a name="sec-arc-role-interaction" id="sec-arc-role-interaction"></a>
       <h1>3 Interaction with Other Arc Roles</h1>
       <p>
 The class-subclass and trait-concept arc roles are independent of the summation-item, general-special, wider-narrower and essence-alias arc roles. A class-subclass relationship does not imply a summation exists between two concepts. The use of a general-special arc does not imply inheritance of a trait to the specialized concept of the general special relationship. The use of the essence-alias arc does not imply the inheritance of a trait to alias concept on the essence-alias arc.
