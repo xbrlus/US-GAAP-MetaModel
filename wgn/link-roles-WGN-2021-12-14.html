@@ -1,0 +1,301 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:s="http://xbrl.org/specification/2007" xmlns:diff="http://xbrl.org/specification/2007/diff"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>XBRL Traits and Classes using the Link Role Registry</title><link rel="stylesheet" type="text/css" href="styles.css"></head><body><div class="head">
+<h1><a name="title" id="title"></a>XBRL Traits and Classes using the Link Role Registry</h1>
+<h2>
+              Document
+             14 December 2021</h2><p>Copyright © 2021 XBRL International Inc., All Rights Reserved.</p><dl><dt>This version:</dt><dd><a href="http://www.xbrl.org/WGN/xbrl-traits/WGN-2021-12-14/xbrl-traits-WGN-2021-12-14.html">&lt;http://www.xbrl.org/WGN/xbrl-traits/WGN-2021-12-14/xbrl-traits-WGN-2021-12-14.html&gt;</a></dd><dt>Editor:</dt><dd><a name="p-cjp" id="p-cjp"></a>
+        Campbell Pryde, 
+         XBRL US.
+         <a href="mailto:pdw@xbrl.org">&lt;campbell.pryde@xbrl.us&gt;</a>
+      </dd><dt>Contributors:</dt><dd><a name="p-db" id="p-db"></a>
+        David Bell, 
+         UBPartner
+         <a href="mailto:dbell@ubpartner.fr">&lt;dbell@ubpartner.fr&gt;</a>
+      </dd><dd><a name="p-hf" id="p-hf"></a>
+        Herm Fischer, 
+         Mark V Systems
+         <a href="mailto:fischer@markv.com">&lt;fischer@markv.com&gt;</a>
+      </dd><dd><a name="p-mrg" id="p-mrg"></a>
+        Mark Goodhand, 
+         CoreFiling
+         <a href="mailto:mrg@corefiling.com">&lt;mrg@corefiling.com&gt;</a>
+        </dd><dd><a name="p-pdw" id="p-pdw"></a>
+          Paul Warren, 
+           XBRL International
+           <a href="mailto:mrg@xbrl.org">&lt;pdw@xbrl.com&gt;</a>
+      </dd></dl><hr><div><h2><a name="status" id="status"></a>Status</h2><p>Circulation of this 
+              Document
+             is unrestricted. 
+            Other documents may supersede this document. 
+          
+            Recipients are invited to submit comments to
+          <a href="mailto:spec@xbrl.org">spec@xbrl.org</a>,
+          
+            and to submit notification of any relevant patent rights 
+            of which they are aware and provide supporting 
+            documentation.
+          </p></div><div>
+<h2><a name="abstract" id="abstract"></a>Abstract</h2>
+      <p>
+
+This document identifies a number of technical issues relating to the handling
+of trait (property) links, and in particular, the handling of inheritance of traits and the restriction of trait values.
+
+      </p>
+    </div></div><div class="toc">
+<h2><a name="contents" id="contents"></a>Table of Contents</h2><p class="toc"><span>1 <a href="#sec-intro">Introduction</a><br>
+</span><span>2 <a href="#sec-assignment-of-traits">Assignment of Traits</a><br>
+<span>   2.1 <a href="#sec-assignment-by-class">Assignment of Traits by Sub Class</a><br>
+</span><span>   2.2 <a href="#sec-complete-duplicates">Restrictions on the Assignment of Traits and Classes</a><br>
+</span><span>   2.3 <a href="#sec-multi-language-duplicates">Traits, Classes and Extended Link Roles</a><br>
+</span></span>
+<span>3 <a href="#sec-issues-with-xbrl-2-1-duplicate-definition">Interaction with Other Arc Roles</a><br>
+</span>
+
+<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc"><span>A <a href="#sec-references">References</a><br>
+</span><span>B <a href="#sec-ip-status">Intellectual property status (non-normative)</a><br>
+</span><span>C <a href="#sec-acknowledgements">Acknowledgements (non-normative)</a><br>
+</span><span>D <a href="#sec-history">Document history</a><br>
+</span><span>E <a href="#sec-corrections">Errata corrections in this document</a><br>
+</span></p><h3><a name="figures" id="figures"></a>Figure</h3><p class="toc">1 <a href="#figure-duplicates-venn">Classes of duplicates</a><br></p>
+<h3><a name="definitions" id="definitions"></a>Definition</h3><p class="toc"><a href="#term-string-fact">String fact</a><br></p></div><hr><div class="body">
+    <div class="div1"><a name="sec-intro" id="sec-intro"></a>
+      <h1>1 Introduction</h1>
+      <p>
+       The trait and class links allow the assignment of semantic meaning to concepts. These link roles allow the assignment of traits to concepts and the ability to capture semantic meaning relative to related concepts.
+      </p>
+      <p>
+
+These relationships support the automation of normalization routines, 
+allows the building of business rules without defining lists of concepts, 
+allows improved search for concepts and provides additional support for machine learning.
+
+
+      </p>
+      <p>
+
+        The concept trait relationship defines the relationship between a source duration trait domain member and a target concept. 
+        Trait concepts are abstract concepts with a domain item type. The
+        trait-concept relationship describes the qualities or properties of a target concept. The source concept in a trait concept relationship represents a single trait such as Operating, Financing, Investing, Current, Noncurrent, Estimated Accrual, Continuing, Discontinued etc. 
+        The arc between the trait and the target concept allows specific accounting or non-accounting traits to be associated with a target concept using the definition linkbase. The link allows the attributes of a concept to be explicitly stated rather than being included as adjectives in the concepts name or label. 
+        
+      </p>
+      <p>
+        Traits assigned to a concept are global across the entire DTS. A concept used in any context will have the traits defined by the trait-concept relationship.
+      </p>
+      <p>
+
+Traits work in combination with the class-subclass relationship. The class subclass relationship indicates the relationship between a source class concept and a target subclass concept. 
+Class-subclass relationships describe that the target concept has the same traits of the class concept with further qualifiers. 
+All the traits of the class source concept are also applicable to the target subclass concept. The traits of the class are inherited by the subclass and all subsequent descendants. The class-subclass relationship supports multiple inheritance.  This means a concept can be a subclass of two different class parents.
+
+      </p>
+
+      
+      </p>
+    </div>
+    <div class="div1"><a name="sec-assignment-of-traits" id="sec-assignment-of-traits"></a>
+      <h1>2 Assignment of Traits</h1>
+      <p>
+     
+Trait types are defined as a trait data-type. The trait type is an abstract element. The trait type is linked to a domain of possible trait values. This uses the arc trait-domain. The domain allows the definition of all the possible trait values, such as current or noncurrent.
+
+      </p>
+      <div class="chunkHeading"><a name="figure-define-traits" id="figure-define-traits"></a>Figure 1: Defining Traits</div><div class="figure">           
+        
+        <img src="images/define-traits.png" width="400" height="300">
+      </div>
+      <p>
+
+The trait of current is defined as a domain member type. It is then associated with concept Cash using the trait-concept arc. The Current Member can be used as a trait but could also be used as a dimension member to define a disaggregation of values by that attribute in a hypercube. Unlike the dimension specification, the trait concept relationship applies to all link roles, not just the one it is defined in.
+
+      </p>
+
+      
+      <div class="div2"><a name="sec-assignment-by-class" id="sec-assignment-by-class"></a>
+        <h2>2.1 Assignment of Traits by Sub Class</h2>
+        
+        <p>
+          Any target subclass of a source class concept with a trait-concept will inherit the traits of the parent class. </p>
+          <p class="nonNormativeExample"> 
+            For example if concept "Cash" is the target of a trait-concept arc with a source concept of "Current", then the subclass of the "Cash" concept "Cash In Bank" would also inherit the "Current" trait. 
+
+          </p>
+          <p>
+            Inheritance applies across all networks in the DTS. In the example above if the class-subclass relationship is in a different network than the trait-concept relationship then "Cash In Bank" would still inherit the "Current" trait. 
+
+          </p>
+
+          <p>Figure 2 below shows how the concept "Commercial Paper" would have both the traits of:
+            
+            <ol>
+              <li>being recorded at carrying value; and</li>
+              <li>being current.</li>
+            </ol>
+           
+          The concept "Commercial Paper" would inherit both of these traits from its two ancestors even though the trait was not assigned to it directly.
+          </p>
+
+        </p>
+        <div class="chunkHeading"><a name="figure-define-traits" id="figure-define-traits"></a>Figure 2: Inheriting Traits using a Subclass</div><div class="figure">           
+        
+          <img src="images/trait-class.png" width="440" height="220">
+        </div>
+        
+        </p>
+      </div>
+      <p>
+        A concept can be subclass of multiple classes. This means a single concept can have more than one parent. In these cases the taxonomy designed must be careful to ensure that classes do not have contradictory traits.
+      </p>
+
+      <div class="div2"><a name="sec-assignment-restrictions" id="sec-assignment-restrictions"></a>
+        <h2>2.2 Restrictions on the Assignment of Traits and Classes</h2>
+        <p>
+Contradictory traits cannot be assigned to a given concept.  In Figure 1, the concept Cash cannot have two traits that appear on the same domain. Cash for example cannot have a trait of Current and NonCurrent.  It is possible that a domain connected with the trait-domain has nested members within that domain. In these cases a concept assigned a trait from that domain cannot have more than 1 trait from that domain. 
+        </p>
+        <p>
+          The class-subclass arc can be used in conjunction with the trait-concept arcrole. Inheritance of traits using the class-subclass relationship applies across all networks in the DTS. 
+          This means the class-subclass relationship cannot be defined between two concepts with conflicting concept properties or traits. </p>
+          <p class="nonNormativeExample">
+          For example a source instant concept cannot link to a target duration concept, a source debit balance concept cannot link to a credit balance concept. The target concept must have the same data-type or a specialization of the source class concept datatype. For example a source concept with a datatype of decimal can link to target concept with a datatype of integer, but cannot link to a target concept with a datatype of string. </p>
+          <p>
+          This logic also applies to attributes that are derived from a trait. A concept with a trait of current cannot have a subclass with a trait of non-current.
+        </p>
+        <p>In figure 3 a concept is assigned a trait of recorded at Historical Cost and its subclass is assigned a trait of Recorded at Carrying Value. </p>
+        
+        <div class="chunkHeading"><a name="conflicting-traits" id="conflicting-traits"></a>Figure 3: Conflicting Traits</div><div class="figure">           
+        <p></p>
+          <img src="images/conflicting-traits.png" width="500" height="180">
+        </div>
+        <p>These two traits are distinct as defined by the relationships in figure 4. </p>
+
+        <div class="chunkHeading"><a name="trait-domain" id="trait-domain"></a>Figure 4: Trait Domain for Recorded Value</div><div class="figure">           
+          <p></p>
+            <img src="images/trait-domain.png" width="600" height="120">
+          </div>
+          <p>The class subclass relationship between the two concepts cannot be defined because they have contradictory traits. To define the subclass the Recorded at carrying value trait would have to be removed, or the class-subclass relationship would have to be defined at a higher level as shown in figure 5. </p>
+
+          <div class="chunkHeading"><a name="conflicting-traits" id="conflicting-traits"></a>Figure 5: Nonconflicting Traits</div><div class="figure">           
+            <p></p>
+              <img src="images/non-conflicting-traits.png" width="500" height="180">
+            </div>
+        <p>
+            A trait concept cannot be the source of a class-subclass arc. This would result in the subclass being a duplicate of the class as trait concepts only have one trait. A trait concept cannot be the target of a class-subclass arc or a trait-concept arc. This would result in the subclass getting multiple traits and trait concepts can only have one trait.  </p>
+
+
+      </div>
+      <div class="div2"><a name="traits-classes-extended-link-roles" id="traits-classes-extended-link-roless"></a>
+        <h2>2.3 Traits, Classes and Extended Link Roles</h2>
+        <p>
+          Trait datatypes are associated with a domain. The trait-domain relationship although defined in one link role applies to all link roles. Because traits and classes have to be consistent across the dts they can all be defined in a single link role. 
+</p><p>
+  Different trait domains cannot be defined in different extended link roles. The domain that applies to the trait is the domain where the trait-domain relationship is defined. The same trait-domain relationship cannot be defined in separate link roles if the domains or the contents of the domain are different. This is similar to the way that different dimension-defaults cannot be defined for the same axis.
+  <p>For this reason the trait-domain relationship can only exist once for a given trait datatype in the dts.</p>
+
+  <p>Classes and subclasses cannot be inconsistent across extended link roles.Because a class is a method of assigning traits to a concept and concepts are the same across extended link roles, the class and subclass relationships must also be consistent across extended link roles. This means inconsistencies in traits and classes cannot exist across extended link roles.</p>
+
+    </div>
+    <div class="div1"><a name="arc-role-interaction" id="arc-role-interaction"></a>
+      <h1>3 Interaction with Other Arc Roles</h1>
+      <p>
+The class-subclass and trait-concept arc roles are independent of the summation-item, general-special, wider-narrower and essence-alias arc roles. A class-subclass relationship does not imply a summation exists between two concepts. The use of a general-special arc does not imply inheritance of a trait to the specialized concept of the general special relationship. The use of the essence-alias arc does not imply the inheritance of a trait to alias concept on the essence-alias arc.
+    </div>
+    <div class="back">
+    <div class="div1"><a name="sec-references" id="sec-references"></a>
+      <h1>Appendix A References</h1>
+      <dl>
+        
+        
+        
+        
+
+      <dt class="label"><a name="DIMENSIONS-USE-WGN" id="DIMENSIONS-USE-WGN"></a>DIMENSIONS-USE-WGN</dt><dd>XBRL International Inc.. "Technical Considerations for the use of XBRL Dimensions 1.0"<span><br>Paul Warren.</span><br>(See <a href="http://www.xbrl.org/WGN/dimensions-use/WGN-2015-03-25/dimensions-use-WGN-2015-03-25.html">http://www.xbrl.org/WGN/dimensions-use/WGN-2015-03-25/dimensions-use-WGN-2015-03-25.html</a>)</dd><dt class="label"><a name="IXBRL-v1.1-PART0" id="IXBRL-v1.1-PART0"></a>Inline XBRL Primer</dt><dd>XBRL International Inc.. "Inline XBRL Part 0: Primer 1.1"<span><br>Philip Allen.</span><br>(See <a href="http://www.xbrl.org/Specification/inlineXBRL-part0/REC-2013-11-18/inlineXBRL-part0-REC-2013-11-18.html">http://www.xbrl.org/Specification/inlineXBRL-part0/REC-2013-11-18/inlineXBRL-part0-REC-2013-11-18.html</a>)</dd><dt class="label"><a name="IXBRL-v1.1-PART1" id="IXBRL-v1.1-PART1"></a>Inline XBRL Specification</dt><dd>XBRL International Inc.. "Inline XBRL Part 1: Specification 1.1"<span><br>Philip Allen.</span><br>(See <a href="http://www.xbrl.org/Specification/inlineXBRL-part1/REC-2013-11-18/inlineXBRL-part1-REC-2013-11-18.html">http://www.xbrl.org/Specification/inlineXBRL-part1/REC-2013-11-18/inlineXBRL-part1-REC-2013-11-18.html</a>)</dd><dt class="label"><a name="XBRL" id="XBRL"></a>XBRL 2.1</dt><dd>XBRL International Inc.. "Extensible Business Reporting Language (XBRL) 2.1 Includes Corrected Errata Up To 2013-02-20"<span><br>Phillip Engel</span><span>, Walter Hamscher</span><span>, Geoff Shuetrim</span><span>, David vun Kannon</span><span>, and Hugh Wallis.</span><br>(See <a href="http://www.xbrl.org/Specification/XBRL-2.1/REC-2003-12-31/XBRL-2.1-REC-2003-12-31+corrected-errata-2013-02-20.html">http://www.xbrl.org/Specification/XBRL-2.1/REC-2003-12-31/XBRL-2.1-REC-2003-12-31+corrected-errata-2013-02-20.html</a>)</dd></dl>
+    </div>
+    <div class="div1"><a name="sec-ip-status" id="sec-ip-status"></a>
+  <h1>Appendix B Intellectual property status (non-normative)</h1>
+  
+  <p>
+    This document and translations of it may be copied and
+    furnished to others, and derivative works that comment on or
+    otherwise explain it or assist in its implementation may be
+    prepared, copied, published and distributed, in whole or in
+    part, without restriction of any kind, provided that the above
+    copyright notice and this paragraph are included on all such
+    copies and derivative works. However, this document itself may
+    not be modified in any way, such as by removing the copyright
+    notice or references to XBRL International or XBRL
+    organizations, except as required to translate it into
+    languages other than English. Members of XBRL International
+    agree to grant certain licenses under the XBRL International
+    Intellectual Property Policy 
+    (<a href="http://www.xbrl.org/legal">www.xbrl.org/legal</a>).
+  </p>
+
+
+  <p>
+    This document and the information contained herein is provided
+    on an "AS IS" basis and XBRL INTERNATIONAL DISCLAIMS ALL
+    WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT
+    INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
+    MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+  </p>
+
+  <p>
+    The attention of users of this document is directed to the
+    possibility that compliance with or adoption of XBRL
+    International specifications may require use of an invention
+    covered by patent rights. XBRL International shall not be
+    responsible for identifying patents for which a license may be
+    required by any XBRL International specification, or for
+    conducting legal inquiries into the legal validity or scope of
+    those patents that are brought to its attention. XBRL
+    International specifications are prospective and advisory
+    only. Prospective users are responsible for protecting
+    themselves against liability for infringement of patents. XBRL
+    International takes no position regarding the validity or
+    scope of any intellectual property or other rights that might
+    be claimed to pertain to the implementation or use of the
+    technology described in this document or the extent to which
+    any license under such rights might or might not be available;
+    neither does it represent that it has made any effort to
+    identify any such rights. Members of XBRL International agree
+    to grant certain licenses under the XBRL International
+    Intellectual Property Policy 
+    (<a href="http://www.xbrl.org/legal">www.xbrl.org/legal</a>).
+  </p>
+</div>
+    <div class="div1"><a name="sec-acknowledgements" id="sec-acknowledgements"></a>
+      <h1>Appendix C Acknowledgements (non-normative)</h1>
+    </div> 
+    <div class="div1"><a name="sec-history" id="sec-history"></a>
+      <h1>Appendix D Document history</h1>
+      <table class="revisions"><tr><th>Date</th><th>Author</th><th>Details</th></tr>
+        <tr><td>14 December 2021</td><td>Campbell Pryde</td><td>
+          <p class="revision">
+            First public release.
+          </p>
+        </td></tr>
+        
+      </table>
+    </div>
+    <div class="div1"><a name="sec-corrections" id="sec-corrections"></a>
+  <h1>Appendix E Errata corrections in this document</h1>
+  
+  <p>
+    This appendix contains a list of the errata that have been
+    incorporated into this document. This represents all those
+    errata corrections that have been approved by the XBRL
+    International Base Specification and Maintenance Working Group up to and
+    including 19 April 2018. 
+    Hyperlinks to relevant e-mail threads may
+    only be followed by those who have access to the relevant
+    mailing lists. Access to internal XBRL mailing lists is
+    restricted to members of XBRL International Inc.
+  </p>
+  
+  <p>No errata have been incorporated into this document.</p>
+  
+</div>
+  </div></body></html>
