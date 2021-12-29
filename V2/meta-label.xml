@@ -73,5 +73,8 @@
       <link:label id="id_1c10a998" xlink:label="lbl_label470854040" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Amortized Cost [Member]</link:label>
       <link:loc xlink:href="meta.xsd#meta_RecordedAtAmortizedCostMember" xlink:label="lbl_RecordedAtAmortizedCostMember" xlink:type="locator"/>
       <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtAmortizedCostMember" xlink:to="lbl_label470854040" xlink:type="arc"/>
+      <link:label id="id_3a7c368b" xlink:label="lbl_label981218955" xlink:role="http://www.xbrl.org/2003/role/label" xlink:type="resource" xml:lang="en">Recorded at Amortized Cost After Allowance for Credit Loss [Member]</link:label>
+      <link:loc xlink:href="meta.xsd#meta_RecordedAtAmortizedCostAfterAllowanceForCreditLossMember" xlink:label="lbl_RecordedAtAmortizedCostAfterAllowanceForCreditLossMember" xlink:type="locator"/>
+      <link:labelArc order="1.0" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="lbl_RecordedAtAmortizedCostAfterAllowanceForCreditLossMember" xlink:to="lbl_label981218955" xlink:type="arc"/>
    </link:labelLink>
 </link:linkbase>
