@@ -1,0 +1,29 @@
+constant $CONTRAS = navigate 'http://www.xbrl.org/2021/arcrole/instant-contra' descendants taxonomy $meta returns set (source-name, target-name)
+
+constant $RESTRICTED_PROPERTY = navigate 'http://www.xbrl.org/2021/arcrole/trait-concept' descendants from us-gaap-metaModel:RestrictedMember taxonomy $meta returns set (target-name)
+
+constant $RESTRICTED_ITEMS = navigate 'http://www.xbrl.org/2021/arcrole/class-subclass' descendants include start from $RESTRICTED_PROPERTY taxonomy $meta returns set (target-name)
+
+
+constant $CASH_INFLOW = navigate 'http://www.xbrl.org/2021/arcrole/instant-inflow' descendants from Cash taxonomy  $meta returns set (target-name)
+
+
+constant $AOCI_INSTANT_ITEMS = navigate summation-item descendants include start from AccumulatedOtherComprehensiveIncomeLossNetOfTax taxonomy $us-gaap returns target-name
+
+constant $OCI_ITEMS = navigate 'http://www.xbrl.org/2021/arcrole/instant-inflow' descendants from $AOCI_INSTANT_ITEMS taxonomy $meta returns  target-name
+
+output contra
+$CONTRAS
+
+
+output restricted
+$RESTRICTED_ITEMS + $RESTRICTED_PROPERTY
+
+output cashInflow
+$CASH_INFLOW 
+
+output OCI_ITEMS
+$OCI_ITEMS
+
+output RESTRICTED_PROPERTY
+$RESTRICTED_PROPERTY

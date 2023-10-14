@@ -1,0 +1,25 @@
+/**
+Mapping
+ (c) Copyright 2017 - 2020, XBRL US Inc. All rights reserved.
+
+Taxonomy: US GAAP 2021
+
+**/
+
+constant $meta = taxonomy('https://xbrl.fasb.org/meta/dev/us-gaap-metaModel-entire-2023.xsd')
+
+constant $us-gaap = taxonomy('https://xbrl.fasb.org/us-gaap/2022/entire/us-gaap-entryPoint-std-2022.xsd')
+
+constant $exchange = taxonomy('https://xbrl.sec.gov/exch/2021/exch-entire-2022.xsd')
+
+constant $state_province = taxonomy('https://xbrl.sec.gov/stpr/2021/stpr-entire-2022.xsd')
+
+constant $naics = taxonomy('https://xbrl.sec.gov/naics/2021/naics-entire-2022.xsd')
+
+constant $sic = taxonomy('https://xbrl.sec.gov/sic/2021/sic-entire-2022.xsd')
+
+constant $all_base_taxonomies = list($us-gaap, $exchange, $state_province, $naics, $sic)
+
+/** DEI HANDLING**/
+
+constant $dei_namespace = first((filter (filter taxonomy().concepts returns $item.name.namespace-uri) where $item.lower-case.contains('xbrl.sec.gov/dei')).to-list)

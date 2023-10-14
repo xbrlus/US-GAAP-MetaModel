@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:us-gaap-entryPoint-std="http://fasb.org/us-gaap-entryPoint-std/2022" xmlns:us-gaap-meta="https://taxonomies.xbrl.us/meta/us-gaap/2022" attributeFormDefault="unqualified" blockDefault="" elementFormDefault="qualified" finalDefault="" targetNamespace="https://taxonomies.xbrl.us/meta/us-gaap/2022">
+   <xsd:import namespace="http://fasb.org/us-gaap-entryPoint-std/2022" schemaLocation="https://xbrl.fasb.org/us-gaap/2022/entire/us-gaap-entryPoint-std-2022.xsd"/>
+</xsd:schema>

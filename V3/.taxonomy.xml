@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prop:properties xmlns:prop="http://mwtms.corefiling.com/properties">
+  <prop:taxonomyName>XBRLUS-META-Taxonomy</prop:taxonomyName>
+  <prop:majorVersion/>
+  <prop:versionDescription/>
+  <prop:dtsRoot friendlyName="Main entry point">us-gaap-meta.xsd</prop:dtsRoot>
+  <prop:isLocked>false</prop:isLocked>
+  <prop:primaryLanguage>en</prop:primaryLanguage>
+  <prop:serializationScheme>compact</prop:serializationScheme>
+</prop:properties>

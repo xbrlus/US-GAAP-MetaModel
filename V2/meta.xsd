@@ -38,7 +38,7 @@
          <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="meta-label.xml" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:type="simple"/>
          <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="meta-definition.xml" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:type="simple"/>
          <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="meta-inst-contra.xml" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:type="simple"/>
-      <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/trait-domain" cyclesAllowed="undirected" id="traitdomain">
+         <link:arcroleType arcroleURI="http://www.xbrl.org/2021/arcrole/trait-domain" cyclesAllowed="undirected" id="traitdomain">
             <definition xmlns="http://www.xbrl.org/2003/linkbase">Links the trait identifier to the domain of possible traits.</definition>
             <link:usedOn>link:definitionArc</link:usedOn>
          </link:arcroleType>
@@ -48,7 +48,8 @@
             <definition xmlns="http://www.xbrl.org/2003/linkbase">Describes those concepts that are properties of a domain.</definition>
             <link:usedOn>link:definitionArc</link:usedOn>
             <link:usedOn>meta:domain-concept</link:usedOn>
-         </link:arcroleType></xsd:appinfo>
+         </link:arcroleType>
+      </xsd:appinfo>
    </xsd:annotation>
    <xsd:complexType abstract="false" mixed="false" name="trait">
       <xsd:simpleContent>

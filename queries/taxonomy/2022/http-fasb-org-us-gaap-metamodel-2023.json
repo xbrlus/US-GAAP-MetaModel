@@ -1,0 +1,201 @@
+{
+    "http://fasb.org/us-gaap-metaModel/2023": [
+        {
+            "localName": "RecordedAtAmortizedCostMember",
+            "type": "Concept",
+            "label": "Recorded at Amortized Cost [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "InvestingActivity",
+            "type": "Concept",
+            "label": "Investing Activity [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "trait",
+            "type": "Type",
+            "label": "trait"
+        },
+        {
+            "localName": "FinancingActivity",
+            "type": "Concept",
+            "label": "Financing Activity [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "ActivityTypeTrait",
+            "type": "Concept",
+            "label": "Activity Type [Trait]",
+            "isAbstract": "true",
+            "dataType": "us-gaap-metaModel:trait",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Noncurrent",
+            "type": "Concept",
+            "label": "Noncurrent",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedAtLowerOfCarryingValueOrFairValue",
+            "type": "Concept",
+            "label": "Recorded at Lower of Amortized Cost or Fair Value [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RestrictedMember",
+            "type": "Concept",
+            "label": "Restricted [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "CarryingValue",
+            "type": "Concept",
+            "label": "Recorded at Carrying Value [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedAsEstimate",
+            "type": "Concept",
+            "label": "Recorded as Estimate [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "LiquidityTrait",
+            "type": "Concept",
+            "label": "Liquidity [Trait]",
+            "isAbstract": "true",
+            "dataType": "us-gaap-metaModel:trait",
+            "periodType": "duration"
+        },
+        {
+            "localName": "UnrelatedPartyMember",
+            "type": "Concept",
+            "label": "Unrelated Party [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RelatedPartyTrait",
+            "type": "Concept",
+            "label": "Related Party [Trait]",
+            "isAbstract": "true",
+            "dataType": "us-gaap-metaModel:trait",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedValueDomain",
+            "type": "Concept",
+            "label": "Recorded Value [Domain]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "UnrestrictedMember",
+            "type": "Concept",
+            "label": "Unrestricted [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedAtHistoricalCost",
+            "type": "Concept",
+            "label": "Recorded at Historical Cost [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RelatedPartyMember",
+            "type": "Concept",
+            "label": "Related Party [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedAtAmortizedCostAfterAllowanceForCreditLossMember",
+            "type": "Concept",
+            "label": "Recorded at Amortized Cost After Allowance for Credit Loss [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "OperatingActivitiesTrait",
+            "type": "Concept",
+            "label": "Operating Activities [Trait]",
+            "isAbstract": "true",
+            "dataType": "us-gaap-metaModel:trait",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecordedAtFairValue",
+            "type": "Concept",
+            "label": "Recorded at Fair Value [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "ActivityTypeDomain",
+            "type": "Concept",
+            "label": "Activity Type [Domain]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "RecodedValueTrait",
+            "type": "Concept",
+            "label": "Recoded Value [Trait]",
+            "isAbstract": "true",
+            "dataType": "us-gaap-metaModel:trait",
+            "periodType": "duration"
+        },
+        {
+            "localName": "LiquidityDomain",
+            "type": "Concept",
+            "label": "Liquidity [Domain]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "OperatingActivity",
+            "type": "Concept",
+            "label": "Operating Activity [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "CurrentTrait",
+            "type": "Concept",
+            "label": "Current [Member]",
+            "isAbstract": "true",
+            "dataType": "dtr-types:domainItemType",
+            "periodType": "duration"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in SEC Inline Transforms successful, version 19.2. - transforms/SEC </message>
+ <ref href="transforms/SEC"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Validate EFM successful, version 1.21.1. - validate/EFM </message>
+ <ref href="validate/EFM"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Inline XBRL Document Set successful, version 1.1. - inlineXbrlDocumentSet </message>
+ <ref href="inlineXbrlDocumentSet"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23374 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 4.81 secs at 2022-11-02T15:54:51 - https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS </message>
+ <ref href="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS#?#https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/esgr-20220630.htm"/></entry>
+<entry code="OCI_ITEMS" level="info">
+ <message filing_url="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS" severity="info" cid="4404809584">[OCI_ITEMS] list(us-gaap:DebtSecuritiesAvailableForSaleUnrealizedGainLoss) - </message></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 23.63 secs - https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS </message>
+ <ref href="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS#?#https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/esgr-20220630.htm"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in SEC Inline Transforms successful, version 19.2. - transforms/SEC </message>
+ <ref href="transforms/SEC"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Validate EFM successful, version 1.21.1. - validate/EFM </message>
+ <ref href="validate/EFM"/></entry>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in Inline XBRL Document Set successful, version 1.1. - inlineXbrlDocumentSet </message>
+ <ref href="inlineXbrlDocumentSet"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23374 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 4.73 secs at 2022-11-02T15:58:51 - https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS </message>
+ <ref href="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS#?#https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/esgr-20220630.htm"/></entry>
+<entry code="restricted" level="info">
+ <message filing_url="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS" severity="info" cid="4366856048">[restricted] set(us-gaap:SecuritiesSegregatedUnderOtherRegulations, us-gaap:RestrictedCashAndInvestmentsCurrent, us-gaap:DepositAssets, us-gaap:CashSegregatedUnderOtherRegulations, us-gaap:CashCollateralForBorrowedSecurities, us-gaap:RestrictedCashEquivalentsCurrent, us-gaap:OtherRestrictedAssetsCurrent, us-gaap:DebtSecuritiesTradingRestricted, us-gaap:CashAndSecuritiesSegregatedUnderSecuritiesExchangeCommissionRegulation, us-gaap:CashAndSecuritiesSegregatedUnderCommodityExchangeActRegulation, us-gaap:RestrictedInvestmentsNoncurrent, us-gaap:RestrictedCashCurrent, us-gaap:EarnestMoneyDeposits, us-gaap:RestrictedInvestmentsCurrent, us-gaap:CashAndSecuritiesSegregatedUnderFederalAndOtherRegulations, us-gaap:DepositsWithClearingOrganizationsAndOthersSecurities, us-gaap:RestrictedInvestments, us-gaap:RestrictedCashAndInvestments, us-gaap:EscrowDeposit, us-gaap:OtherRestrictedAssets, us-gaap:RestrictedCashAndCashEquivalentsNoncurrent, us-gaap:MarginDepositAssets, us-gaap:RestrictedCashAndCashEquivalentsAtCarryingValue, us-gaap:RetainageDeposit, us-gaap:RestrictedCashAndCashEquivalents, us-gaap:DepositContractsAssets, us-gaap:ReplacementReserveEscrow, us-gaap:SecurityDeposit) - </message></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 12.81 secs - https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS </message>
+ <ref href="https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/_IXDS#?#https://www.sec.gov/Archives/edgar/data/1363829/000136382922000169/0001363829-22-000169-xbrl.zip/esgr-20220630.htm"/></entry>
+</log>
